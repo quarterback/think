@@ -5,135 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A minimal portfolio for a solo artist and speculative designer working with systems, futures, and poetic prototypes."
+      content="A minimal post-brutalist portfolio for a solo artist and speculative designer."
     />
-    <title>Think Studio — Speculative Design Portfolio</title>
+    <title>Think Studio — Artist Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header" data-reveal>
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="wordmark" href="#top" aria-label="Think Studio home">
-          <span aria-hidden="true">◇</span>
-          Think Studio
-        </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-          <span class="sr-only">Toggle navigation menu</span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </button>
-        <ul class="nav-list" id="site-menu">
-          <li><a href="#work">Work</a></li>
-          <li><a href="#practice">Practice</a></li>
-          <li><a href="#notes">Notes</a></li>
-          <li><a class="pill-link" href="mailto:hello@example.com">Contact</a></li>
-        </ul>
-      </nav>
+    <header class="site-header">
+      <a class="site-name" href="#main" aria-label="Think Studio home">Think Studio</a>
+      <p>Speculative design / solo practice</p>
     </header>
 
     <main id="main" tabindex="-1">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="hero-copy" data-reveal>
-          <p class="eyebrow">Solo artist · speculative designer · systems observer</p>
-          <h1 id="hero-title">Quiet interfaces for possible futures.</h1>
-          <p class="lede">
-            I make research-led artifacts, installations, and visual systems that ask how
-            bodies, ecologies, and machines might negotiate new rituals of care.
-          </p>
-          <div class="hero-actions" aria-label="Portfolio actions">
-            <a class="button" href="#work">View selected work</a>
-            <a class="button button-secondary" href="#practice">Read practice statement</a>
-          </div>
-        </div>
-        <aside class="hero-card" aria-label="Current studio focus" data-reveal>
-          <p class="card-kicker">Current inquiry</p>
-          <h2>What does an archive feel like when it dreams?</h2>
-          <p>
-            A modular study of memory, synthetic landscapes, and tactile publishing.
-          </p>
-        </aside>
-      </section>
-
-      <section class="section" id="work" aria-labelledby="work-title">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Selected work</p>
-          <h2 id="work-title">Projects as portals</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card" data-reveal>
-            <div class="project-media tone-one" aria-hidden="true"></div>
-            <div class="project-content">
-              <p class="project-meta">Installation · 2026</p>
-              <h3>Weather for Unfinished Rooms</h3>
-              <p>
-                A responsive interior climate that translates local air-quality data into
-                light, fog, and low-frequency sound.
-              </p>
-            </div>
-          </article>
-          <article class="project-card" data-reveal>
-            <div class="project-media tone-two" aria-hidden="true"></div>
-            <div class="project-content">
-              <p class="project-meta">Publication · 2025</p>
-              <h3>Manual for Soft Machines</h3>
-              <p>
-                A field guide for building small rituals with obsolete devices and
-                speculative maintenance logs.
-              </p>
-            </div>
-          </article>
-          <article class="project-card" data-reveal>
-            <div class="project-media tone-three" aria-hidden="true"></div>
-            <div class="project-content">
-              <p class="project-meta">Research object · 2024</p>
-              <h3>Domestic Futures Index</h3>
-              <p>
-                A set of tactile cards for imagining household infrastructures after
-                extraction, scarcity, and repair.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="statement" id="practice" aria-labelledby="practice-title" data-reveal>
-        <p class="eyebrow">Practice</p>
-        <h2 id="practice-title">I use speculation as an accessibility tool.</h2>
+      <section class="bio" aria-labelledby="bio-title">
+        <p class="label">Artist bio</p>
+        <h1 id="bio-title">Think Studio is the solo practice of an artist working through speculative design, research, and object-making.</h1>
         <p>
-          The studio treats futures as public material: something to touch, question, and
-          revise together. Each project begins with listening, moves through prototypes,
-          and ends as an invitation rather than a fixed answer.
+          Their work treats future scenarios as plain material: something to draft,
+          test, and argue with. Across installations, publications, and small systems,
+          the practice studies the everyday politics of tools, care, archives, and
+          damaged environments.
         </p>
       </section>
 
-      <section class="section notes" id="notes" aria-labelledby="notes-title">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Notes</p>
-          <h2 id="notes-title">Open threads</h2>
+      <section class="projects" aria-labelledby="projects-title">
+        <div class="section-row">
+          <p class="label">Projects</p>
+          <p id="project-count" aria-live="polite"></p>
         </div>
-        <ul class="note-list">
-          <li data-reveal>
-            <span>01</span>
-            <a href="mailto:hello@example.com?subject=Listening%20objects">Listening objects for civic imagination</a>
+        <h2 id="projects-title">Selected work</h2>
+
+        <ol class="project-list">
+          <li>
+            <article>
+              <p class="project-year">2026</p>
+              <h3>Weather for Unfinished Rooms</h3>
+              <p>An installation translating local air-quality data into light, fog, and low-frequency sound.</p>
+            </article>
           </li>
-          <li data-reveal>
-            <span>02</span>
-            <a href="mailto:hello@example.com?subject=Accessible%20exhibition%20systems">Accessible exhibition systems as choreography</a>
+          <li>
+            <article>
+              <p class="project-year">2025</p>
+              <h3>Manual for Soft Machines</h3>
+              <p>A printed field guide for maintaining obsolete devices, improvised tools, and speculative rituals.</p>
+            </article>
           </li>
-          <li data-reveal>
-            <span>03</span>
-            <a href="mailto:hello@example.com?subject=Ritual%20prototypes">Ritual prototypes for low-carbon digital life</a>
+          <li>
+            <article>
+              <p class="project-year">2025</p>
+              <h3>Archive That Dreams Back</h3>
+              <p>A research object about memory, synthetic landscapes, tactile publishing, and unreliable preservation.</p>
+            </article>
           </li>
-        </ul>
+          <li>
+            <article>
+              <p class="project-year">2024</p>
+              <h3>Domestic Futures Index</h3>
+              <p>A set of cards for imagining household infrastructures after extraction, scarcity, and repair.</p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <p class="project-year">2024</p>
+              <h3>Signals for Low Carbon Grief</h3>
+              <p>A compact audio work and listening score for mourning energy habits that should not survive.</p>
+            </article>
+          </li>
+        </ol>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> Think Studio. Replace with your name.</p>
-      <a href="#top">Back to top</a>
+      <p>© <span id="year"></span> Think Studio</p>
+      <a href="mailto:hello@example.com">hello@example.com</a>
     </footer>
   </body>
 </html>
