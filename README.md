@@ -1,6 +1,6 @@
 # Think Studio
 
-A minimal post-brutalist static portfolio for a solo artist working through speculative design. The site uses two colors, Fontshare-hosted type instead of Google Fonts, semantic HTML, visible focus styles, skip navigation, and reduced-motion support.
+A minimal post-brutalist static portfolio for a solo artist working through speculative design. The writing is intentionally concrete and material-first: short sentences, plain images, and no gallery jargon. The site uses two colors, Fontshare-hosted type instead of Google Fonts, semantic HTML, visible focus styles, skip navigation, and reduced-motion support.
 
 ## Files
 
