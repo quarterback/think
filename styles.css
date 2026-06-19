@@ -1,9 +1,40 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap');
+/* ──────────────────────────────────────────────────────────
+   Thinking Weapons — participatory design studio.
+
+   A retrofit of the original post-brutalist "Think" scaffold:
+   the exposed ruled frames and giant display type are kept, but
+   recoloured into a ronbronson.dev / ronbronson.design house
+   register — a Bell Labs / IBM technical-memorandum lens. Mono
+   metadata labels, a serif display face, and a WCAG-audited
+   five-pigment palette written by palette.js before first paint.
+
+   Type (Fontshare-hosted, no Google Fonts — matching the original
+   scaffold's ethos; mono falls through to the system stack):
+     --display : Zodiak — serif display, masthead + titles
+     --text    : Switzer — grotesque body copy (ronbronson's deck face)
+     --mono    : system monospace — labels, years, document control
+   ────────────────────────────────────────────────────────── */
+
+@import url('https://api.fontshare.com/v2/css?f[]=zodiak@400,700,900&f[]=switzer@400,500,600,700&display=swap');
 
 :root {
-  --paper: #f5f1e8;
-  --ink: #111111;
+  /* Static "Snow" fallback — palette.js overwrites these at load, so a
+     JS-off render still lands on the page, never on default white. */
+  --bg: #fff9fb;        /* Snow           — paper ground            */
+  --bg-deeper: #d3d4d9; /* Alabaster Grey — panel / media ground    */
+  --ink: #481620;       /* Night Bordeaux — ink                     */
+  --ink-soft: #40748a;  /* Air Force Blue, AA-tuned for soft text   */
+  --rule: #4b88a2;      /* Air Force Blue — decorative hairline      */
+  --accent: #d55672;    /* Blush Rose     — signal                  */
+
+  /* Structure */
+  --frame: 2px;         /* essential grid frame, drawn in --ink */
+  --hair: 1px;          /* decorative row hairline, drawn in --rule */
   --max-width: 76rem;
+
+  --display: "Zodiak", "Times New Roman", Georgia, serif;
+  --text: "Switzer", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 * {
@@ -16,35 +47,46 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
-  font-family: Satoshi, Arial, sans-serif;
+  font-family: var(--text);
+  font-weight: 500;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
-  line-height: 1.5;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+/* Faint technical grid — drawn in --ink so it inverts with the theme. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: linear-gradient(var(--ink) 1px, transparent 1px), linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+  z-index: 0;
+  background-image: linear-gradient(var(--ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ink) 1px, transparent 1px);
   background-size: 4rem 4rem;
-  opacity: 0.06;
+  opacity: 0.05;
 }
 
 a {
   color: currentColor;
-  text-decoration-thickness: 0.12em;
+  text-decoration-thickness: 0.1em;
   text-underline-offset: 0.18em;
 }
 
 a:hover {
-  text-decoration-thickness: 0.22em;
+  color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
 :focus-visible {
-  outline: 0.22rem solid var(--ink);
+  outline: var(--frame) solid var(--accent);
   outline-offset: 0.25rem;
 }
 
@@ -52,35 +94,57 @@ a:hover {
   position: absolute;
   left: 1rem;
   top: 1rem;
-  z-index: 2;
+  z-index: 3;
   transform: translateY(-200%);
-  border: 0.16rem solid var(--ink);
-  background: var(--paper);
+  border: var(--frame) solid var(--ink);
+  background: var(--bg);
   padding: 0.6rem 0.8rem;
-  font-weight: 900;
+  font-family: var(--mono);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .skip-link:focus {
   transform: translateY(0);
 }
 
+.topnav,
 .site-header,
 main,
 .site-footer {
   position: relative;
+  z-index: 1;
   width: min(100% - 1.5rem, var(--max-width));
   margin-inline: auto;
 }
 
+/* ── Cross-site links (top right), ronbronson-style ─────────── */
+.topnav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 0.85rem 0.25rem 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.topnav a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: var(--frame) solid var(--accent);
+  padding-bottom: 1px;
+}
+
+/* ── Masthead ───────────────────────────────────────────────── */
 .site-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
   gap: 1rem;
-  border: 0.16rem solid var(--ink);
-  border-top: 0;
-  padding: 1rem;
-  text-transform: uppercase;
+  border: var(--frame) solid var(--ink);
+  padding: 1.25rem 1rem;
 }
 
 .site-header p,
@@ -93,18 +157,44 @@ p {
 }
 
 .site-name {
-  font-size: clamp(3.5rem, 13vw, 11rem);
+  font-family: var(--display);
+  font-size: clamp(3rem, 11vw, 9.5rem);
   font-weight: 900;
-  letter-spacing: -0.09em;
-  line-height: 0.78;
+  letter-spacing: -0.04em;
+  line-height: 0.84;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
+.site-header > p {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-bottom: 0.4rem;
+}
+
+/* ── Section labels (mono metadata) ─────────────────────────── */
+.label {
+  display: block;
+  border-bottom: var(--frame) solid var(--ink);
+  padding: 0.9rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ── Bio / intro ────────────────────────────────────────────── */
 .bio {
   display: grid;
   gap: 1.25rem;
-  border-inline: 0.16rem solid var(--ink);
-  padding: clamp(2rem, 7vw, 5rem) 1rem clamp(2rem, 7vw, 5rem);
+  border-inline: var(--frame) solid var(--ink);
+  border-bottom: var(--frame) solid var(--ink);
+  padding: clamp(2rem, 6vw, 4.5rem) 1rem;
 }
 
 .bio .label {
@@ -112,117 +202,210 @@ p {
   padding: 0;
 }
 
-.label {
-  display: block;
-  border-bottom: 0.16rem solid var(--ink);
-  padding: 1rem;
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 h1 {
-  max-width: 34rem;
-  font-size: clamp(1.55rem, 3vw, 2.65rem);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1;
-  text-transform: uppercase;
+  max-width: 36rem;
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 3.4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
 }
 
 .bio > p:last-child {
   max-width: 46rem;
-  border-left: 0.16rem solid var(--ink);
+  border-left: var(--frame) solid var(--rule);
   padding-left: 1rem;
-  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  color: var(--ink);
 }
 
-.projects {
-  border: 0.16rem solid var(--ink);
-}
-
-.site-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+/* ── Events ─────────────────────────────────────────────────── */
+.events {
+  border-inline: var(--frame) solid var(--ink);
+  border-bottom: var(--frame) solid var(--ink);
 }
 
 h2 {
-  border-bottom: 0.16rem solid var(--ink);
+  border-bottom: var(--frame) solid var(--ink);
   padding: 1rem;
-  font-size: clamp(2rem, 6vw, 5rem);
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   font-weight: 900;
-  letter-spacing: -0.06em;
-  line-height: 0.85;
+  letter-spacing: -0.04em;
+  line-height: 0.86;
   text-transform: uppercase;
 }
 
-.project-list {
+.event-list {
   margin: 0;
   padding: 0;
   list-style: none;
+  counter-reset: none;
 }
 
-.project-list li {
-  border-bottom: 0.16rem solid var(--ink);
+.event {
+  display: grid;
+  grid-template-columns: minmax(4rem, auto) minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  padding: clamp(1rem, 2.2vw, 1.6rem) 1rem;
+  border-bottom: var(--hair) solid var(--rule);
 }
 
-.project-list li:last-child {
+.event:last-child {
   border-bottom: 0;
 }
 
-.project-list article {
-  display: grid;
-  grid-template-columns: minmax(10rem, 0.8fr) minmax(14rem, 1fr);
-  gap: 1rem;
-  min-height: 10rem;
-  padding: 1rem;
+.event__year {
+  font-family: var(--mono);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
 }
 
-h3 {
-  font-size: clamp(1.7rem, 4vw, 3.5rem);
-  font-weight: 900;
-  letter-spacing: -0.055em;
-  line-height: 0.9;
+.event__body {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.event__title {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
   text-transform: uppercase;
 }
 
-.project-list p:last-child {
-  max-width: 34rem;
+.event__place {
+  font-family: var(--text);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  color: var(--ink-soft);
 }
 
+.event__link {
+  align-self: center;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: var(--frame) solid var(--accent);
+  padding-bottom: 1px;
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
 .site-footer {
-  border-inline: 0.16rem solid var(--ink);
-  border-bottom: 0.16rem solid var(--ink);
-  padding: 1rem;
+  display: grid;
+  gap: 0.85rem;
+  border-inline: var(--frame) solid var(--ink);
+  border-bottom: var(--frame) solid var(--ink);
+  padding: 1.25rem 1rem 1.5rem;
+}
+
+.site-footer p {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+
+.site-footer__colophon {
+  max-width: 60ch;
+}
+
+.site-footer a {
+  color: var(--ink);
+  border-bottom: var(--frame) solid var(--accent);
+  padding-bottom: 1px;
+  text-decoration: none;
+}
+
+/* ── Palette dock — square, ruled (ported from ronbronson) ──── */
+.palette-dock {
+  position: fixed;
+  bottom: clamp(0.9rem, 2vw, 1.5rem);
+  right: clamp(0.9rem, 2vw, 1.5rem);
+  z-index: 80;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  background: var(--bg);
+  border: var(--frame) solid var(--ink);
+}
+
+.palette-dock__tag {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.palette-swatch {
+  width: 16px;
+  height: 16px;
+  border: var(--hair) solid var(--ink);
+  background: var(--sw-bg);
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease;
+}
+
+.palette-swatch::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: var(--sw-accent);
+  transform: scale(0);
+  transition: transform 0.12s ease;
+}
+
+.palette-swatch:hover {
+  transform: translateY(-2px);
+}
+
+.palette-swatch:focus-visible {
+  outline: var(--frame) solid var(--accent);
+  outline-offset: 2px;
+}
+
+.palette-swatch[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.palette-swatch[aria-pressed="true"]::after {
+  transform: scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+  .palette-swatch,
+  .palette-swatch::after {
+    transition: none;
+  }
 }
 
 @media (max-width: 720px) {
-  .site-header,
-  .site-footer {
-    flex-direction: column;
-  }
-
-  .bio {
-    min-height: auto;
-  }
-
   .site-header {
     grid-template-columns: 1fr;
   }
 
   .site-name {
-    font-size: clamp(3rem, 22vw, 6rem);
+    font-size: clamp(2.75rem, 18vw, 6rem);
   }
 
-  .project-list article {
+  .event {
     grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .event__link {
+    justify-self: start;
   }
 }
