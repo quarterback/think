@@ -1,31 +1,31 @@
 /* ──────────────────────────────────────────────────────────
-   Thinking Weapons — participatory design studio.
+   Thinking Weapons - participatory design studio.
 
    A retrofit of the original post-brutalist "Think" scaffold:
    the exposed ruled frames and giant display type are kept, but
    recoloured into a ronbronson.dev / ronbronson.design house
-   register — a Bell Labs / IBM technical-memorandum lens. Mono
+   register - a Bell Labs / IBM technical-memorandum lens. Mono
    metadata labels, a serif display face, and a WCAG-audited
    five-pigment palette written by palette.js before first paint.
 
-   Type (Fontshare-hosted, no Google Fonts — matching the original
+   Type (Fontshare-hosted, no Google Fonts - matching the original
    scaffold's ethos; mono falls through to the system stack):
-     --display : Zodiak — serif display, masthead + titles
-     --text    : Switzer — grotesque body copy (ronbronson's deck face)
-     --mono    : system monospace — labels, years, document control
+     --display : Zodiak - serif display, masthead + titles
+     --text    : Switzer - grotesque body copy (ronbronson's deck face)
+     --mono    : system monospace - labels, years, document control
    ────────────────────────────────────────────────────────── */
 
 @import url('https://api.fontshare.com/v2/css?f[]=zodiak@400,700,900&f[]=switzer@400,500,600,700&display=swap');
 
 :root {
-  /* Static "Snow" fallback — palette.js overwrites these at load, so a
+  /* Static "Snow" fallback - palette.js overwrites these at load, so a
      JS-off render still lands on the page, never on default white. */
-  --bg: #fff9fb;        /* Snow           — paper ground            */
-  --bg-deeper: #d3d4d9; /* Alabaster Grey — panel / media ground    */
-  --ink: #481620;       /* Night Bordeaux — ink                     */
+  --bg: #fff9fb;        /* Snow           - paper ground            */
+  --bg-deeper: #d3d4d9; /* Alabaster Grey - panel / media ground    */
+  --ink: #481620;       /* Night Bordeaux - ink                     */
   --ink-soft: #40748a;  /* Air Force Blue, AA-tuned for soft text   */
-  --rule: #4b88a2;      /* Air Force Blue — decorative hairline      */
-  --accent: #d55672;    /* Blush Rose     — signal                  */
+  --rule: #4b88a2;      /* Air Force Blue - decorative hairline      */
+  --accent: #d55672;    /* Blush Rose     - signal                  */
 
   /* Structure */
   --frame: 2px;         /* essential grid frame, drawn in --ink */
@@ -57,7 +57,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Faint technical grid — drawn in --ink so it inverts with the theme. */
+/* Faint technical grid - drawn in --ink so it inverts with the theme. */
 body::before {
   content: "";
   position: fixed;
@@ -379,7 +379,7 @@ h2 {
   color: var(--accent);
 }
 
-/* ── Palette dock — square, ruled (ported from ronbronson) ──── */
+/* ── Palette dock - square, ruled (ported from ronbronson) ──── */
 .palette-dock {
   position: fixed;
   bottom: clamp(0.9rem, 2vw, 1.5rem);

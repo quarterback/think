@@ -1,16 +1,16 @@
 /* ──────────────────────────────────────────────────────────
-   Thinking Weapons — palette engine, WCAG-mapped.
+   Thinking Weapons - palette engine, WCAG-mapped.
 
    Five fixed pigments wired into the site's role tokens, in the
    same considered register as ronbronson.dev / ronbronson.design.
    Every role assignment below was chosen against measured
-   contrast, and the audit still runs — open the console and call
+   contrast, and the audit still runs - open the console and call
    TWPalette.audit() to read the ratios the schemes land on.
 
      Snow           #fff9fb   paper ground / light ink
-     Alabaster Grey #d3d4d9   surface — panels, secondary on dark
+     Alabaster Grey #d3d4d9   surface - panels, secondary on dark
      Air Force Blue #4b88a2   mid surface / decorative rule
-     Blush Rose     #d55672   signal — fills, borders, large display
+     Blush Rose     #d55672   signal - fills, borders, large display
      Night Bordeaux #481620   ink ground / dark ink
 
    Role rules (enforced by the values, verified by audit):
@@ -75,7 +75,7 @@
       bg:     PIG.snow,
       deeper: PIG.alabaster,
       ink:    PIG.bordeaux,
-      // Air Force Blue lands ~3.8 on Snow — under AA for body text.
+      // Air Force Blue lands ~3.8 on Snow - under AA for body text.
       // This is the same hue nudged toward Bordeaux until it clears
       // AA (~4.9); pure Air Force Blue stays the decorative rule.
       soft:   '#40748a',
@@ -154,7 +154,7 @@
   }
 
   /* ── Email deobfuscation ──────────────────────────────
-     The address is never in the markup as plain text — it is
+     The address is never in the markup as plain text - it is
      assembled here from data-user / data-domain so harvesters
      scraping static HTML never see it. No-JS shows the
      "[at] / [dot]" fallback baked into the link. */
