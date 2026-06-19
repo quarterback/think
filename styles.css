@@ -315,31 +315,68 @@ h2 {
   padding-bottom: 1px;
 }
 
-/* ── Footer ─────────────────────────────────────────────────── */
+/* ── Footer / colophon (ported from ronbronson.dev/.design) ──── */
 .site-footer {
-  display: grid;
-  gap: 0.85rem;
   border-top: var(--frame) solid var(--ink);
   margin-top: clamp(2rem, 5vw, 4rem);
   padding: 1.25rem 0.25rem 1.5rem;
 }
 
-.site-footer p {
+.colophon {
+  max-width: 78ch;
+  margin-left: auto;
   font-family: var(--mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.02em;
+  font-size: clamp(0.8rem, 1.05vw, 0.9rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
   color: var(--ink-soft);
+  text-align: right;
 }
 
-.site-footer__colophon {
-  max-width: 60ch;
+.colophon h2 {
+  margin: 0 0 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
-.site-footer a {
+.colophon p {
+  margin: 0;
+}
+
+.colophon p + p {
+  margin-top: 0.7em;
+}
+
+.colophon b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.colophon a {
   color: var(--ink);
   border-bottom: var(--frame) solid var(--accent);
   padding-bottom: 1px;
   text-decoration: none;
+}
+
+.colophon a:hover {
+  color: var(--accent);
+}
+
+.colophon__digression {
+  color: var(--ink);
+}
+
+.digression__label {
+  margin-right: 6px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 /* ── Palette dock — square, ruled (ported from ronbronson) ──── */

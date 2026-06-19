@@ -169,9 +169,32 @@
     });
   }
 
+  /* ── Rotating digression ──────────────────────────────
+     Same trick as the ronbronson.dev / .design colophon: one aside
+     shown at random per load, never the same one twice in a row.
+     Edit / add lines in DIGRESSIONS. */
+  function setupDigression() {
+    const el = document.getElementById('digression');
+    if (!el) return;
+    const DIGRESSIONS = [
+      'Inexplicably, a Green Bay Packers shareholder.',
+      'A longtime tea sommelier. Ask for loose-leaf recs.',
+      'Has coached high school tennis for ten years across three states.',
+      'Last time he went fishing? 1994.',
+      'Once a bar trivia host in Bloomington.',
+    ];
+    let last = -1;
+    try { last = parseInt(sessionStorage.getItem('tw-digression'), 10); } catch (_) {}
+    let i = Math.floor(Math.random() * DIGRESSIONS.length);
+    while (DIGRESSIONS.length > 1 && i === last) i = Math.floor(Math.random() * DIGRESSIONS.length);
+    try { sessionStorage.setItem('tw-digression', i); } catch (_) {}
+    el.textContent = DIGRESSIONS[i];
+  }
+
   function onReady() {
     injectUI();
     setupEmails();
+    setupDigression();
   }
 
   if (document.readyState === 'loading') {
