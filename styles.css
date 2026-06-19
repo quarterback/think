@@ -105,9 +105,15 @@ p {
   padding: clamp(2rem, 8vw, 7rem) 1rem 1rem;
 }
 
-.label,
-.project-year,
-#project-count {
+.bio .label {
+  border-bottom: 0;
+  padding: 0;
+}
+
+.label {
+  display: block;
+  border-bottom: 0.16rem solid var(--ink);
+  padding: 1rem;
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -134,16 +140,10 @@ h1 {
   border: 0.16rem solid var(--ink);
 }
 
-.section-row,
 .site-footer {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-}
-
-.section-row {
-  border-bottom: 0.16rem solid var(--ink);
-  padding: 1rem;
 }
 
 h2 {
@@ -160,11 +160,9 @@ h2 {
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: projects;
 }
 
 .project-list li {
-  counter-increment: projects;
   border-bottom: 0.16rem solid var(--ink);
 }
 
@@ -174,16 +172,10 @@ h2 {
 
 .project-list article {
   display: grid;
-  grid-template-columns: 5rem minmax(10rem, 0.8fr) minmax(14rem, 1fr);
+  grid-template-columns: minmax(10rem, 0.8fr) minmax(14rem, 1fr);
   gap: 1rem;
   min-height: 10rem;
   padding: 1rem;
-}
-
-.project-list article::before {
-  content: counter(projects, decimal-leading-zero);
-  font-size: 0.82rem;
-  font-weight: 900;
 }
 
 h3 {
@@ -212,7 +204,6 @@ h3 {
 
 @media (max-width: 720px) {
   .site-header,
-  .section-row,
   .site-footer {
     flex-direction: column;
   }

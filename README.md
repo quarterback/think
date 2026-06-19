@@ -6,7 +6,7 @@ A minimal post-brutalist static portfolio for a solo artist working through spec
 
 - `index.html` — a single third-person artist bio and a selected project list.
 - `styles.css` — two-color post-brutalist layout, responsive type, and accessibility states.
-- `script.js` — current year and project count enhancement.
+- `script.js` — current year enhancement.
 
 ## Deploy
 
