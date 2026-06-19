@@ -170,14 +170,14 @@ p {
 
 .site-lede {
   font-family: var(--text);
-  font-weight: 600;
-  font-size: clamp(1.05rem, 2.2vw, 1.6rem);
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.5;
   color: var(--ink);
-  max-width: 42ch;
-  margin-top: 0.5rem;
-  text-wrap: balance;
+  max-width: 46rem;
+  margin-top: 0.9rem;
+  border-left: var(--frame) solid var(--rule);
+  padding-left: 1rem;
 }
 
 /* ── Section labels (mono metadata) ─────────────────────────── */
@@ -223,6 +223,7 @@ h1 {
   border-left: var(--frame) solid var(--rule);
   padding-left: 1rem;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 600;
 }
 
 /* ── Events ─────────────────────────────────────────────────── */
