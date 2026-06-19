@@ -33,7 +33,6 @@ scheme lands on.
 - `index.html` — studio intro and the selected exhibitions/events list.
 - `styles.css` — recoloured post-brutalist layout, responsive type, a11y states.
 - `palette.js` — WCAG-mapped palette engine + theme dock (runs before paint).
-- `script.js` — current-year enhancement.
 
 Type is Fontshare-hosted (Zodiak display, Switzer body) — no Google Fonts, in
 keeping with the original scaffold; labels and years fall through to the system
