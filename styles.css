@@ -278,6 +278,15 @@ h2 {
   color: var(--ink-soft);
 }
 
+.event__desc {
+  font-family: var(--text);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 54ch;
+  margin-top: 0.15rem;
+}
+
 .event__link {
   align-self: center;
   font-family: var(--mono);
