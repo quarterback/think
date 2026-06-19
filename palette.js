@@ -153,10 +153,31 @@
     syncSwatchState(document.documentElement.dataset.palette || DEFAULT);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectUI);
-  } else {
+  /* ── Email deobfuscation ──────────────────────────────
+     The address is never in the markup as plain text — it is
+     assembled here from data-user / data-domain so harvesters
+     scraping static HTML never see it. No-JS shows the
+     "[at] / [dot]" fallback baked into the link. */
+  function setupEmails() {
+    document.querySelectorAll('a.email-link').forEach((a) => {
+      const user = a.dataset.user;
+      const domain = a.dataset.domain;
+      if (!user || !domain) return;
+      const addr = user + '@' + domain;
+      a.href = 'mailto:' + addr;
+      a.textContent = addr;
+    });
+  }
+
+  function onReady() {
     injectUI();
+    setupEmails();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
   }
 
   window.TWPalette = {
