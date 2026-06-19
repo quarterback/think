@@ -20,7 +20,7 @@ body {
   color: var(--ink);
   font-family: Satoshi, Arial, sans-serif;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 body::before {
@@ -73,8 +73,9 @@ main,
 }
 
 .site-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
   gap: 1rem;
   border: 0.16rem solid var(--ink);
   border-top: 0;
@@ -92,17 +93,18 @@ p {
 }
 
 .site-name {
+  font-size: clamp(3.5rem, 13vw, 11rem);
   font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.78;
   text-decoration: none;
 }
 
 .bio {
-  min-height: 72vh;
   display: grid;
-  align-content: end;
-  gap: 1.5rem;
+  gap: 1.25rem;
   border-inline: 0.16rem solid var(--ink);
-  padding: clamp(2rem, 8vw, 7rem) 1rem 1rem;
+  padding: clamp(2rem, 7vw, 5rem) 1rem clamp(2rem, 7vw, 5rem);
 }
 
 .bio .label {
@@ -121,11 +123,11 @@ p {
 }
 
 h1 {
-  max-width: 13ch;
-  font-size: clamp(3rem, 11vw, 9rem);
+  max-width: 34rem;
+  font-size: clamp(1.55rem, 3vw, 2.65rem);
   font-weight: 900;
-  letter-spacing: -0.08em;
-  line-height: 0.78;
+  letter-spacing: -0.035em;
+  line-height: 1;
   text-transform: uppercase;
 }
 
@@ -133,7 +135,7 @@ h1 {
   max-width: 46rem;
   border-left: 0.16rem solid var(--ink);
   padding-left: 1rem;
-  font-size: clamp(1.15rem, 2vw, 1.75rem);
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
 }
 
 .projects {
@@ -212,8 +214,12 @@ h3 {
     min-height: auto;
   }
 
-  h1 {
-    max-width: 9ch;
+  .site-header {
+    grid-template-columns: 1fr;
+  }
+
+  .site-name {
+    font-size: clamp(3rem, 22vw, 6rem);
   }
 
   .project-list article {
