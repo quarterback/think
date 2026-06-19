@@ -30,7 +30,8 @@ scheme lands on.
 
 ## Files
 
-- `index.html` — studio intro and the selected exhibitions/events list.
+- `index.html` — masthead and the selected exhibitions/events list.
+- `about.html` — the studio statement and bio.
 - `styles.css` — recoloured post-brutalist layout, responsive type, a11y states.
 - `palette.js` — WCAG-mapped palette engine + theme dock (runs before paint).
 

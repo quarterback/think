@@ -121,13 +121,17 @@ main,
 /* ── Cross-site links (top right), ronbronson-style ─────────── */
 .topnav {
   display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
   padding: 0.85rem 0.25rem 0;
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.topnav__ext {
+  margin-left: auto;
 }
 
 .topnav a {
@@ -155,7 +159,7 @@ p {
 
 .site-name {
   font-family: var(--display);
-  font-size: clamp(1.9rem, 9.2vw, 7rem);
+  font-size: clamp(1.9rem, 7vw, 5rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 0.9;
@@ -198,17 +202,21 @@ h1 {
   line-height: 1.04;
 }
 
-.bio > p:last-child {
+.bio p {
   max-width: 46rem;
+  color: var(--ink);
+}
+
+.bio > p:first-of-type {
   border-left: var(--frame) solid var(--rule);
   padding-left: 1rem;
   font-size: clamp(1rem, 1.3vw, 1.2rem);
-  color: var(--ink);
 }
 
 /* ── Events ─────────────────────────────────────────────────── */
 .events {
   border-top: var(--frame) solid var(--ink);
+  margin-top: clamp(1.75rem, 5vw, 3.5rem);
 }
 
 h2 {
