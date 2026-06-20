@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 &mdash; Thinking Weapons</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="Page not found." />
+<!-- Placeholder 404: this repo has no site/design system yet, so this page
+     is intentionally self-contained and neutral. Swap to the studio's
+     shared styles (site.css + palette) once the site exists. -->
+<style>
+  :root { --bg:#0e0e10; --ink:#f4f4f2; --soft:#8a8a8f; --accent:#ff6700; --line:#2a2a2e; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; }
+  body {
+    background:var(--bg); color:var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex; align-items:center; justify-content:center;
+    padding:clamp(24px,6vw,72px);
+  }
+  .wrap { width:100%; max-width:640px; }
+  .tag { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--soft); margin:0 0 clamp(16px,3vw,28px); }
+  .e404 { font-weight:800; font-size:clamp(84px,22vw,220px); line-height:0.85; letter-spacing:-0.04em; margin:0; }
+  .e404 span { color:var(--accent); }
+  .msg { max-width:46ch; margin:clamp(16px,3vw,28px) 0 clamp(22px,4vw,34px); font-size:clamp(16px,1.6vw,19px); line-height:1.5; color:var(--ink); }
+  .links { display:flex; flex-wrap:wrap; gap:10px 22px; padding-top:clamp(16px,2.4vw,24px); border-top:1px solid var(--line); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:13px; }
+  a { color:var(--ink); text-decoration:none; border-bottom:2px solid var(--accent); padding-bottom:1px; }
+  a:hover { color:var(--accent); }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="tag">Thinking Weapons</p>
+    <p class="e404">4<span>0</span>4</p>
+    <p class="msg">That page isn&rsquo;t here. It may have moved, been retired, or never existed.</p>
+    <nav class="links">
+      <a href="/">Home &rarr;</a>
+      <a href="https://ronbronson.design">ronbronson.design &#8599;</a>
+    </nav>
+  </main>
+</body>
+</html>
