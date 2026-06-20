@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 · Thinking Weapons</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="Page not found." />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Palette engine sets colour tokens before first paint (no FOUC). -->
+    <script src="palette.js"></script>
+    <style>
+      .error-main { padding: clamp(2rem, 6vw, 4.5rem) 0.25rem; }
+      .e404 {
+        font-family: var(--display);
+        font-weight: 900;
+        font-size: clamp(6rem, 26vw, 18rem);
+        line-height: 0.82;
+        letter-spacing: -0.04em;
+        margin: 0;
+      }
+      .e404 span { color: var(--accent); }
+      .error-msg {
+        font-family: var(--text);
+        font-weight: 500;
+        font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+        line-height: 1.5;
+        max-width: 46rem;
+        margin: 1.25rem 0 0;
+        border-left: var(--frame) solid var(--rule);
+        padding-left: 1rem;
+      }
+      .backlinks {
+        list-style: none;
+        margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+        padding: 1rem 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 1.5rem;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .backlinks a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: var(--frame) solid var(--accent);
+        padding-bottom: 1px;
+      }
+      .backlinks a:hover { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <nav class="topnav" aria-label="Site">
+      <a href="index.html#about">About</a>
+      <a class="topnav__ext" href="https://ronbronson.dev">ronbronson.dev &#8599;</a>
+      <a href="https://ronbronson.design">ronbronson.design &#8599;</a>
+    </nav>
+
+    <header class="site-header">
+      <a class="site-name" href="index.html" aria-label="Thinking Weapons home">Thinking Weapons</a>
+      <p class="site-lede">Design for the speculative present. A studio by Ron Bronson.</p>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <div class="error-main">
+        <p class="label">Error 404</p>
+        <p class="e404">4<span>0</span>4</p>
+        <p class="error-msg">That page isn&rsquo;t here. It may have moved, been retired, or never existed. Head back to the studio.</p>
+        <ul class="backlinks">
+          <li><a href="index.html">Studio &rarr;</a></li>
+          <li><a href="index.html#about">About &rarr;</a></li>
+          <li><a href="https://ronbronson.design">ronbronson.design &#8599;</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <section class="colophon" aria-label="Colophon, with Digressions">
+        <h2>Colophon, with Digressions</h2>
+        <p class="colophon__digression"><span class="digression__label">Digression</span> <span id="digression">Inexplicably, a Green Bay Packers shareholder.</span></p>
+        <p>Built hastily with HTML, CSS, JS, GitHub, and Vercel. Colour is set by a small client-side palette engine that audits its own WCAG contrast.</p>
+        <p>Type currently in use: <b>Zodiak</b> (display), <b>Switzer</b> (running text), and the system monospace stack (labels).</p>
+      </section>
+    </footer>
+  </body>
+</html>
