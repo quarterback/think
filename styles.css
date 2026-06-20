@@ -229,21 +229,51 @@ h1 {
   text-wrap: balance;
 }
 
-/* ── Events ─────────────────────────────────────────────────── */
-.events {
-  border-top: var(--frame) solid var(--ink);
-  margin-top: clamp(1.75rem, 5vw, 3.5rem);
+/* ── Sections (capabilities, events) ────────────────────────── */
+.events,
+.capabilities {
+  margin-top: clamp(2rem, 5vw, 3.75rem);
 }
 
 h2 {
-  border-bottom: var(--frame) solid var(--ink);
-  padding: 1rem 0.25rem;
+  padding: 0 0.25rem 0.75rem;
   font-family: var(--display);
-  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-size: clamp(1.6rem, 3.6vw, 2.75rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.86;
+  letter-spacing: -0.03em;
+  line-height: 1;
   text-transform: uppercase;
+}
+
+/* ── Capabilities list ──────────────────────────────────────── */
+.capability-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability {
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.85fr) minmax(14rem, 1.4fr);
+  gap: 0.4rem 1.5rem;
+  padding: clamp(0.9rem, 2vw, 1.4rem) 0.25rem;
+}
+
+.capability__title {
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.capability__desc {
+  font-family: var(--text);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 52ch;
 }
 
 .event-list {
@@ -259,11 +289,6 @@ h2 {
   align-items: baseline;
   gap: 0.5rem 1.5rem;
   padding: clamp(1rem, 2.2vw, 1.6rem) 0.25rem;
-  border-bottom: var(--hair) solid var(--rule);
-}
-
-.event:last-child {
-  border-bottom: 0;
 }
 
 .event__year {
@@ -317,8 +342,7 @@ h2 {
 
 /* ── Footer / colophon (ported from ronbronson.dev/.design) ──── */
 .site-footer {
-  border-top: var(--frame) solid var(--ink);
-  margin-top: clamp(2rem, 5vw, 4rem);
+  margin-top: clamp(3rem, 7vw, 5.5rem);
   padding: 1.25rem 0.25rem 1.5rem;
 }
 
@@ -451,6 +475,10 @@ h2 {
   .event {
     grid-template-columns: 1fr;
     gap: 0.4rem;
+  }
+
+  .capability {
+    grid-template-columns: 1fr;
   }
 
   .event__link {
