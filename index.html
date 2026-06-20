@@ -3,76 +3,176 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thinking Weapons · Participatory + Critical Design Studio</title>
     <meta
       name="description"
-      content="A minimal post-brutalist portfolio for a solo artist and speculative designer."
+      content="Thinking Weapons is the participatory + critical design practice of Ron Bronson. Multi-day events, workshops, and convenings across civic life, technology, open source, and innovation. Design for the speculative present."
     />
-    <title>Think Studio — Artist Portfolio</title>
+    <link rel="canonical" href="https://thinkingweapons.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Thinking Weapons" />
+    <meta property="og:url" content="https://thinkingweapons.com/" />
+    <meta property="og:title" content="Thinking Weapons · Participatory + Critical Design Studio" />
+    <meta property="og:description" content="The participatory + critical design practice of Ron Bronson. Multi-day events, workshops, and convenings across civic life, technology, open source, and innovation." />
+    <meta property="og:image" content="https://thinkingweapons.com/apple-touch-icon.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Thinking Weapons · Participatory + Critical Design Studio" />
+    <meta name="twitter:description" content="The participatory + critical design practice of Ron Bronson. Multi-day events, workshops, and convenings across civic life, technology, open source, and innovation." />
+    <meta name="twitter:image" content="https://thinkingweapons.com/apple-touch-icon.png" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
+    <!-- Palette engine sets colour tokens before first paint (no FOUC). -->
+    <script src="palette.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <nav class="topnav" aria-label="Site">
+      <a href="#about">About</a>
+      <a class="topnav__ext" href="https://ronbronson.dev">ronbronson.dev &#8599;</a>
+      <a href="https://ronbronson.design">ronbronson.design &#8599;</a>
+    </nav>
+
     <header class="site-header">
-      <a class="site-name" href="#main" aria-label="Think Studio home">Think Studio</a>
-      <p>Speculative design / solo practice</p>
+      <a class="site-name" href="index.html" aria-label="Thinking Weapons home">Thinking Weapons</a>
+      <p class="site-lede">Design for the speculative present. A studio by Ron Bronson.</p>
     </header>
 
     <main id="main" tabindex="-1">
-      <section class="bio" aria-labelledby="bio-title">
-        <p class="label">Artist bio</p>
-        <h1 id="bio-title">Blunt objects, printed scores, and room-sized systems for rehearsing damaged futures.</h1>
-        <p>
-          The practice begins with things you can name: dust on sensors, taped seams,
-          cheap speakers, paper instructions, borrowed chairs, and light leaking under a
-          door. These materials become tests for how people live with broken tools,
-          unstable weather, and archives that remember too much or not enough.
-        </p>
-      </section>
+      <section class="capabilities" aria-labelledby="capabilities-title">
+        <h2 id="capabilities-title">Capabilities</h2>
 
-      <section class="projects" aria-labelledby="projects-title">
-        <p class="label">Projects</p>
-        <h2 id="projects-title">Selected work</h2>
-
-        <ul class="project-list">
-          <li>
-            <article>
-              <h3>Weather for Unfinished Rooms</h3>
-              <p>Air sensors, fog, bare bulbs, and a subwoofer turn a sealed room into a weather report visitors can stand inside.</p>
-            </article>
+        <ul class="capability-list">
+          <li class="capability">
+            <h3 class="capability__title">Public convenings</h3>
+            <p class="capability__desc">Conferences and gatherings that put civic leaders, technologists, and neighbors in the same room, working a shared problem instead of talking past each other.</p>
           </li>
-          <li>
-            <article>
-              <h3>Manual for Soft Machines</h3>
-              <p>Stapled pages, annotated diagrams, and repair notes describe how to keep obsolete devices useful for one more day.</p>
-            </article>
+          <li class="capability">
+            <h3 class="capability__title">Participatory &amp; speculative design</h3>
+            <p class="capability__desc">Room-scale exercises, gallery pieces, and worldbuilding that hand a group the tools to rehearse a system, a decision, or a future before it gets built for them.</p>
           </li>
-          <li>
-            <article>
-              <h3>Archive That Dreams Back</h3>
-              <p>A box of cards, receipts, screenshots, and fabric samples stages an archive that misremembers its own sources.</p>
-            </article>
+          <li class="capability">
+            <h3 class="capability__title">Civic-technology mobilization</h3>
+            <p class="capability__desc">Programs that pair design and engineering talent with public-interest work, building the civic infrastructure cities keep promising but rarely staff.</p>
           </li>
-          <li>
-            <article>
-              <h3>Domestic Futures Index</h3>
-              <p>A deck of heavy cards asks players to rebuild kitchens, bedrooms, and bathrooms around scarcity and mutual repair.</p>
-            </article>
-          </li>
-          <li>
-            <article>
-              <h3>Signals for Low Carbon Grief</h3>
-              <p>A pocket speaker and folded listening score mark the small comforts people may need to give up, slowly and together.</p>
-            </article>
+          <li class="capability">
+            <h3 class="capability__title">Workshops &amp; facilitation</h3>
+            <p class="capability__desc">Hands-on sessions that take a tangled civic or technical question and turn it into something a group can argue about, shape, and actually decide together.</p>
           </li>
         </ul>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+
+        <div class="about__body">
+          <figure class="about__photo">
+            <img src="studio.jpg" alt="Ron Bronson leading a participatory design workshop" loading="lazy" onerror="this.style.display='none'" />
+          </figure>
+          <div class="about__text">
+            <p>Ron Bronson is an interaction architect pioneering the practice of public mechanics, a design framework focused on how public services actually function, how decisions become legible, and how trust is sustained in civic life.</p>
+            <p>By introducing speculative design and iterative delivery, he demystifies complex systems and helps organizations move from intent to implementation. He specializes in building long-term organizational capacity, resolving deep coordination breakdowns, and closing the latency gap between top-down policy intent and lived, on-the-ground outcomes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="events" aria-labelledby="events-title">
+        <h2 id="events-title">Selected work</h2>
+
+        <ol class="event-list">
+          <li class="event">
+            <span class="event__year">2026</span>
+            <div class="event__body">
+              <h3 class="event__title">PDX Futures Bureau</h3>
+              <p class="event__place">Planned &middot; Portland Design Month 2026 &middot; Portland, OR</p>
+              <p class="event__desc">A planned participatory design event for 2026 Portland Design Month, built on the premise that cities are shaped by what they choose to imagine, build, fund, and support. It combines public mechanics with speculative design to ask what Portland can imagine and build together.</p>
+            </div>
+            <a class="event__link" href="https://pdxfutures.org" target="_blank" rel="noopener">pdxfutures.org &#8599;</a>
+          </li>
+
+          <li class="event">
+            <span class="event__year">2025</span>
+            <div class="event__body">
+              <h3 class="event__title">PDX Digital Corps</h3>
+              <p class="event__place">Civic-tech volunteering &middot; Portland, OR &middot; April through July 2025</p>
+              <p class="event__desc">An experiment in civic-tech volunteering that put designers, developers, and PMs onto small teams shipping real fixes for six Oregon organizations: website repairs, usability and accessibility work, and custom tools, all scoped to ship in weeks. Over 100 people took part.</p>
+            </div>
+            <a class="event__link" href="https://digitalcorpspdx.org" target="_blank" rel="noopener">digitalcorpspdx.org &#8599;</a>
+          </li>
+
+          <li class="event">
+            <span class="event__year">2024</span>
+            <div class="event__body">
+              <h3 class="event__title">Design for the Public</h3>
+              <p class="event__place">Revolution Hall &amp; the Wacom Experience Center, Portland &middot; October 16 to 17, 2024</p>
+              <p class="event__desc">A two-day independent conference on public-interest design, co-hosted with Technologists for the Public Good. No sponsors and no corporate agendas, just leaders across public-interest tech, government design, and research reconnecting around the future of human-centered systems through talks, panels, crits, and workshops.</p>
+            </div>
+            <a class="event__link" href="https://designforthepublic.com" target="_blank" rel="noopener">designforthepublic.com &#8599;</a>
+          </li>
+
+          <li class="event">
+            <span class="event__year">2023</span>
+            <div class="event__body">
+              <h3 class="event__title">A Parliament of Neighbors</h3>
+              <p class="event__place">Chimaera gallery popup, Lloyd Center Mall, Portland &middot; May 13, 2023</p>
+              <p class="event__desc">A live participatory piece on worldbuilding, speculative governance, and what we owe our neighbors.</p>
+            </div>
+            <a class="event__link" href="https://www.ronbronson.dev/projects/parliament-of-neighbors.html" target="_blank" rel="noopener">Project &#8599;</a>
+          </li>
+
+          <li class="event">
+            <span class="event__year">2022</span>
+            <div class="event__body">
+              <h3 class="event__title">Death to UX</h3>
+              <p class="event__place">PNCA, Portland &middot; October 5, 2022 &middot; Portland Design Festival</p>
+              <p class="event__desc">A gathering of people interested in interaction design to reckon with what the discipline of user experience has wrought on modern life, and to contemplate what the future might look like. Whiteboards of provocations lined the gallery; participants filled them in, then we discussed the responses together.</p>
+            </div>
+          </li>
+
+          <li class="event">
+            <span class="event__year">2017</span>
+            <div class="event__body">
+              <h3 class="event__title">Consequence Design</h3>
+              <p class="event__place">Design framework &amp; practice</p>
+              <p class="event__desc">A framework for examining how technology affects real lives after deployment: how defaults, automation, and system architecture produce harms their makers rarely see, and how those harms ripple through communities and institutions. Its applied offshoot, DIRE (Design Integrity Reliability Engineering), turns it into methods for maintaining and repairing complex systems under pressure.</p>
+            </div>
+            <a class="event__link" href="https://digital.gov/resources/deceptive-design-how-to-identify-and-combat-consequence-design" target="_blank" rel="noopener">digital.gov &#8599;</a>
+          </li>
+
+          <li class="event">
+            <span class="event__year">2016</span>
+            <div class="event__body">
+              <h3 class="event__title">Pensulo Cards</h3>
+              <p class="event__place">Printed card deck</p>
+              <p class="event__desc">A deck of 46 cards for breaking creative block and provoking ideas, printed and distributed as physical sets.</p>
+            </div>
+            <a class="event__link" href="https://dribbble.com/shots/3794375-Pensulo-Card-Deck" target="_blank" rel="noopener">Dribbble &#8599;</a>
+          </li>
+
+          <li class="event">
+            <span class="event__year">2014</span>
+            <div class="event__body">
+              <h3 class="event__title">Aggregate</h3>
+              <p class="event__place">Atlantic No. 5, Louisville, KY &middot; September 29 to 30, 2014</p>
+              <p class="event__desc">A two-day conference exploring social media, UX, and the future of the web.</p>
+            </div>
+          </li>
+        </ol>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> Think Studio</p>
-      <a href="mailto:hello@example.com">hello@example.com</a>
+      <section class="colophon" aria-label="Colophon, with Digressions">
+        <h2>Colophon, with Digressions</h2>
+        <p class="colophon__digression"><span class="digression__label">Digression</span> <span id="digression">Inexplicably, a Green Bay Packers shareholder.</span></p>
+        <p>Built hastily with HTML, CSS, JS, GitHub, and Vercel. Colour is set by a small client-side palette engine that audits its own WCAG contrast.</p>
+        <p>Type currently in use: <b>Zodiak</b> (display), <b>Switzer</b> (running text), and the system monospace stack (labels).</p>
+      </section>
     </footer>
   </body>
 </html>
