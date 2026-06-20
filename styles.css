@@ -228,13 +228,16 @@ h1 {
   text-wrap: balance;
 }
 
-/* ── Sections (capabilities, events) ────────────────────────── */
+/* ── Sections (capabilities, about, events) ─────────────────── */
 .events,
+.about,
 .capabilities {
   margin-top: clamp(2rem, 5vw, 3.75rem);
 }
 
+/* The only divider: a single underline beneath each section heading. */
 h2 {
+  border-bottom: var(--frame) solid var(--ink);
   padding: 0 0.25rem 0.75rem;
   font-family: var(--display);
   font-size: clamp(1.6rem, 3.6vw, 2.75rem);
@@ -242,6 +245,46 @@ h2 {
   letter-spacing: -0.03em;
   line-height: 1;
   text-transform: uppercase;
+}
+
+/* ── About (inline, with photo) ─────────────────────────────── */
+.about__body {
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.7fr) minmax(0, 1.5fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+  padding-top: clamp(1.25rem, 2.4vw, 2rem);
+}
+
+.about__photo {
+  margin: 0;
+  background: var(--bg-deeper);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.about__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__text {
+  display: grid;
+  gap: 1rem;
+  max-width: 54ch;
+}
+
+.about__text p {
+  margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.about__text p:first-child {
+  font-weight: 600;
 }
 
 /* ── Capabilities list ──────────────────────────────────────── */
@@ -478,6 +521,14 @@ h2 {
 
   .capability {
     grid-template-columns: 1fr;
+  }
+
+  .about__body {
+    grid-template-columns: 1fr;
+  }
+
+  .about__photo {
+    max-width: 22rem;
   }
 
   .event__link {
