@@ -1,0 +1,16 @@
+{
+  "publication": {
+    "url": "https://thinkingweapons.com",
+    "name": "Thinking Weapons",
+    "description": "The participatory + critical design practice of Ron Bronson. Multi-day events, workshops, and convenings across civic life, technology, open source, and innovation. Design for the speculative present.",
+    "icon": "apple-touch-icon.png",
+    "preferences": { "showInDiscover": true }
+  },
+  "documents": {
+    "include": ["index.html"],
+    "exclude": [],
+    "overrides": {
+      "index.html": { "title": "Thinking Weapons" }
+    }
+  }
+}

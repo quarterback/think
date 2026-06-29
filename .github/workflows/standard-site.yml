@@ -1,0 +1,73 @@
+name: standard.site sync
+
+# Creates / updates the AT Protocol records that standard.site indexes, then
+# commits the regenerated verification artifacts (.well-known file + <link>
+# tags) back to the branch. Requires two repo settings:
+#   • Variable  BLUESKY_HANDLE          e.g. ronbronson.dev  (Settings → Secrets and variables → Actions → Variables)
+#   • Secret    BLUESKY_APP_PASSWORD    an app password from bsky.app/settings/app-passwords
+#   • Variable  BLUESKY_SERVICE         (optional) custom PDS URL; defaults to https://bsky.social
+# Until those are set the job is a no-op (green, with a notice).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.html"
+      - "standard.config.json"
+      - "scripts/sync-standard.mjs"
+      - ".github/workflows/standard-site.yml"
+
+concurrency:
+  group: standard-site
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history so publishedAt can use each page's first commit date
+
+      - name: Check configuration
+        id: cfg
+        env:
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: |
+          if [ -z "$BLUESKY_HANDLE" ] || [ -z "$BLUESKY_APP_PASSWORD" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::standard.site sync skipped — set the BLUESKY_HANDLE variable and BLUESKY_APP_PASSWORD secret to enable it."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v4
+        if: steps.cfg.outputs.configured == 'true'
+        with:
+          node-version: "20"
+
+      - name: Sync standard.site records
+        if: steps.cfg.outputs.configured == 'true'
+        env:
+          BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          BLUESKY_SERVICE: ${{ vars.BLUESKY_SERVICE }}
+        run: node scripts/sync-standard.mjs
+
+      - name: Commit regenerated artifacts
+        if: steps.cfg.outputs.configured == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "chore(standard.site): sync publication & document records [skip ci]"
+            git push
+          fi
